@@ -1,9 +1,9 @@
 FROM phusion/baseimage
 
-RUN apt-get update && apt-get install openjdk-8-jdk
+RUN apt-get update && apt-get install -y openjdk-8-jdk
 
-COPY /home/sfriedrich/repo/test2dingens/ /copy_folder
+COPY target/wildtest.jar /copy_folder/wildtest.jar
+COPY script.sh /copy_folder/script.sh
 
 EXPOSE 80
-CMD sh script.sh
-
+CMD sh /copy_folder/script.sh
